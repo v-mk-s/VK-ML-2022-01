@@ -1,3 +1,7 @@
+# basic workflow (github Actions)
+
+name: CI (Continuous Integration)
+
 on: push
 
 jobs:
@@ -61,3 +65,61 @@ jobs:
         with:
             path: valgrind.log
 
+# This is a basic workflow to help you get started with Actions
+
+# sudo systemctl run docker
+  valgrind_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: prepare environment
+        run: sudo apt update && sudo apt install build-essential libgtest-dev cmake gcc valgrind
+      - name: build
+        run: cmake . -Bbuild && cmake --build build --target Tests
+      - name: valgrind_memcheck
+        run: valgrind --tool=memcheck --leak-check=yes --error-exitcode=1 ./build/Tests/Tests
+  sanitaizer_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: prepare environment
+        run: sudo apt update && sudo apt install build-essential libgtest-dev cmake gcc valgrind
+      - name: build
+        run: cmake . -Bbuild -DBUILD_SANITIZERS=1 && cmake --build build --target Tests
+      - name: sanitizer_memcheck
+        run: ./build/Tests/Tests
+  sanitaizer_thread_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: prepare environment
+        run: sudo apt update && sudo apt install build-essential libgtest-dev cmake gcc valgrind
+      - name: build
+        run: cmake . -Bbuild -DBUILD_SANITIZERS_THREAD=1 && cmake --build build --target Tests
+      - name: thread_sanitizer_check
+        run: ./build/Tests/Tests
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: prepare environment
+        run: sudo apt update && sudo apt install python3 python3-pip && pip3 install --user cpplint
+      - name: lint
+        run: ~/.local/bin/cpplint --recursive .
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: prepare environment
+        run: sudo apt update && sudo apt install build-essential cmake gcc lcov libgtest-dev
+      - name: build
+        run: cmake . -Bbuild && cmake --build build --target Tests
+      - name: test run
+        run: ./build/Tests/Tests
+      - name: codecov
+        run: lcov -t "./build/Tests/Tests" -o coverage.info -c -d "./build/area_lib/CMakeFiles/area_lib.dir/" && genhtml -o report coverage.info
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: codecov-report
+          path: ./report

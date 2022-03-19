@@ -3,49 +3,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-#define MAX_NAME_SIZE 20
-#define MAX_MAIL_SERVICE_NAME_SIZE 10
-#define MAX_TOP_LEVEL_DOMAIN_SIZE 10
-
-struct mail {
-    char *name;
-    char *mail_service_name;
-    char *top_level_domain;
-};
-
-char input_char();
-
-/* Returns NULL on failure */
-char *input_string();
-
-bool check_string_as_mail(char const *const string, struct mail *const mail);
-
-/* Creates new mail. Returns false on failure */
-bool create(struct mail **new_mail_p);
-
-/* Prints struct */
-void print_mail(const struct mail * const mail);
-
-/* Return pointer what was asked in the task */
-char *return_pointer_to_struct(const struct mail *const mail);
-
-void delete(struct mail *mail);
-
-int main() {
-    struct mail *new_mail = NULL;
-    bool success = create(&new_mail);
-
-    struct mail *created_mail = NULL;
-    created_mail = return_pointer_to_struct(new_mail); // my hw1 function
-    if (success) {
-        print_mail(new_mail);
-    } else {
-        puts("NULL pointer!");
-    }
-    delete(new_mail);
-    created_mail = NULL;
-    return 0;
-}
+#include "mail.h"
 
 char input_char() {
     char c = '\0';
@@ -56,7 +14,7 @@ char input_char() {
     return c;
 }
 
-bool check_string_as_mail(char const *const string, struct mail *const mail)
+bool check_string_as_mail(char const *const string, Mail *const mail)
 {
     bool success = true;
 
@@ -149,12 +107,12 @@ char *input_string()
     return buf.string;
 }
 
-bool create(struct mail **new_mail_p) {
+bool create(Mail **new_mail_p) {
     if (!new_mail_p) {
         return false;
     }
-    *new_mail_p = (struct mail *)malloc(sizeof(struct mail));
-    struct mail *new_mail = *new_mail_p;
+    *new_mail_p = (Mail *)malloc(sizeof(Mail));
+    Mail *new_mail = *new_mail_p;
     if (!new_mail) {
         return false;
     }
@@ -209,15 +167,15 @@ char *get_url_substring_without_schema(char * str) {
     return result;
 }
 
-void print_mail(const struct mail * const mail) {
+void print_mail(const Mail * const mail) {
     
 }
 
-char *return_pointer_to_struct(const struct mail *const mail) {
+char *return_pointer_to_struct(const Mail *const mail) {
     return mail;    
 }
 
-void delete(struct mail *mail) {
+void delete(Mail *mail) {
     if (!mail) {
         return;
     }

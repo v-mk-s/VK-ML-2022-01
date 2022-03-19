@@ -1,0 +1,1 @@
+/usr/bin/cc    -coverage -lgcov -rdynamic CMakeFiles/mail.dir/main.c.o  -o mail  mail_lib/libmail_lib.a 
