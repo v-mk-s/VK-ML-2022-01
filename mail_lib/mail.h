@@ -1,41 +1,39 @@
-#ifndef  PROJECT_UTILS_H_
-#define  PROJECT_UTILS_H_
+#ifndef  PROJECT_MAIL_H_
+#define  PROJECT_MAIL_H_
 
 #include <string.h>
 #include <stdbool.h>
 #include <stdlib.h>
 
-#define MAX_NAME_SIZE 20
+#define MAX_USERNAME_SIZE 20
 #define MAX_MAIL_SERVICE_NAME_SIZE 10
 #define MAX_TOP_LEVEL_DOMAIN_SIZE 10
 
+#define OK true
+#define ERROR false
+
+#define MAX_INPUT_CHAR_TRY 5
+
 typedef struct Mail {
-    char *name;
+    char *username;
     char *mail_service_name;
     char *top_level_domain;
 } Mail;
 
-bool create_my_struct(char** params);
-
-bool clear_my_struct(Mail* mail);
-
-char input_char();
+/* Creates new struct Mail. Returns pointer to struct or NULL */
+bool create_mail_pointer_to_struct(FILE* file, Mail **new_mail_p);
 
 /* Returns NULL on failure */
 char *input_string();
+char input_char();
 
-bool check_string_as_mail(char const *const string, Mail *const mail);
+bool is_letter(char c);
+bool is_digit(char c);
+bool is_spec_symbol(char c);
+bool is_username_sym(char c);
 
-/* Creates new mail. Returns false on failure */
-bool create(Mail **new_mail_p);
+bool parse_string_as_mail(char const *const string, Mail *const mail);
+bool print_mail(const Mail * const mail, bool success);
+bool delete_mail(Mail *mail);
 
-/* Prints struct */
-void print_mail(const Mail * const mail);
-
-/* Return pointer what was asked in the task */
-char *return_pointer_to_struct(const Mail *const mail);
-
-void delete(Mail *mail);
-
-
-#endif // PROJECT_UTILS_H_
+#endif // PROJECT_MAIL_H_

@@ -1,22 +1,16 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdbool.h>
-#include <stdlib.h>
 
-#include "mail.h"
+#include "mail_lib/mail.h" // "mail" doesn't work
 
-int main() {
+int main(void) {
+    FILE* file = stdin;
     Mail *new_mail = NULL;
-    bool success = create(&new_mail);
+    bool success = false;
 
-    Mail *created_mail = NULL;
-    created_mail = return_pointer_to_struct(new_mail); // my hw1 function
-    if (success) {
-        print_mail(new_mail);
-    } else {
-        puts("NULL pointer!");
-    }
-    delete(new_mail);
-    created_mail = NULL;
+    success = create_mail_pointer_to_struct(file, &new_mail);
+    print_mail(new_mail, success);
+    delete_mail(new_mail);
+
     return 0;
 }
