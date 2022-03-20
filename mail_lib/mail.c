@@ -108,7 +108,7 @@ bool is_username_sym(char c)
     return (is_letter(c) || is_digit(c) || is_spec_symbol(c));
 }
 
-bool parse_string_as_mail(char const *const string, Mail *const mail)
+bool parse_string_as_mail(char const * string, Mail * mail)
 {
     char *username = (char *)malloc((MAX_USERNAME_SIZE + 1) * sizeof(char));
     char *mail_service_name = (char *)malloc((MAX_MAIL_SERVICE_NAME_SIZE + 1) * sizeof(char));

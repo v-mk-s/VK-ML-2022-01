@@ -32,7 +32,7 @@ bool is_digit(char c);
 bool is_spec_symbol(char c);
 bool is_username_sym(char c);
 
-bool parse_string_as_mail(char const *const string, Mail *const mail);
+bool parse_string_as_mail(char const * string, Mail * mail);
 bool print_mail(const Mail * const mail);
 bool delete_mail(Mail *mail);
 
