@@ -43,7 +43,7 @@ jobs:
       - name: Check code style (clangformat)
         run: |
           cd build 
-          make clangformat/fast
+          # make clangformat/fast
       - name: Run make
         run: |
           cd build 
