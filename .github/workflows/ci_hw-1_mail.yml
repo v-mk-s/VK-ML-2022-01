@@ -37,25 +37,24 @@ jobs:
           sudo apt-get install -y cmake build-essential clang-tidy-12 clang-format-12 valgrind gcovr
       - name: CMake (option = for Tests)
         run: |
-          # cd CI-hw-1
           mkdir build
           cd build
           cmake -DBUILD_TESTS=ON ..
       - name: Check code style (clangformat)
         run: |
-          cd CI-hw-1/build 
+          cd build 
           make clangformat/fast
       - name: Run make
         run: |
-          cd CI-hw-1/build 
+          cd build 
           make
       - name: Start Valgrind test
         run: |
-          cd CI-hw-1/build 
+          cd build 
           make tests_with_valgrind/fast
       - name: Make coverage report
         run: |
-          cd CI-hw-1/build 
+          cd build 
           gcovr --root .. --exclude ../tests --exclude _deps --exclude ../main.c --exclude-unreachable-branches --xml-pretty --output coverage.xml
       
       - name: Upload coverage report (Codecov)
@@ -63,7 +62,7 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
-          files: CI-hw-1/build/coverage.xml
+          files: build/coverage.xml
           flags: unittests
           name: codecov-libtests(unittests)
 
