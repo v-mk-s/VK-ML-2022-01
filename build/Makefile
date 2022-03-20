@@ -111,17 +111,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named mail
+# Target rules for targets named clangformat
 
 # Build rule for target.
-mail: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mail
-.PHONY : mail
+clangformat: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clangformat
+.PHONY : clangformat
 
 # fast build rule for target.
-mail/fast:
-	$(MAKE) -f CMakeFiles/mail.dir/build.make CMakeFiles/mail.dir/build
-.PHONY : mail/fast
+clangformat/fast:
+	$(MAKE) -f CMakeFiles/clangformat.dir/build.make CMakeFiles/clangformat.dir/build
+.PHONY : clangformat/fast
+
+#=============================================================================
+# Target rules for targets named mail-hw-1
+
+# Build rule for target.
+mail-hw-1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mail-hw-1
+.PHONY : mail-hw-1
+
+# fast build rule for target.
+mail-hw-1/fast:
+	$(MAKE) -f CMakeFiles/mail-hw-1.dir/build.make CMakeFiles/mail-hw-1.dir/build
+.PHONY : mail-hw-1/fast
 
 #=============================================================================
 # Target rules for targets named mail_lib
@@ -136,26 +149,13 @@ mail_lib/fast:
 	$(MAKE) -f mail_lib/CMakeFiles/mail_lib.dir/build.make mail_lib/CMakeFiles/mail_lib.dir/build
 .PHONY : mail_lib/fast
 
-#=============================================================================
-# Target rules for targets named test_mail
-
-# Build rule for target.
-test_mail: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_mail
-.PHONY : test_mail
-
-# fast build rule for target.
-test_mail/fast:
-	$(MAKE) -f tests/CMakeFiles/test_mail.dir/build.make tests/CMakeFiles/test_mail.dir/build
-.PHONY : test_mail/fast
-
 main.o: main.c.o
 
 .PHONY : main.o
 
 # target to build an object file
 main.c.o:
-	$(MAKE) -f CMakeFiles/mail.dir/build.make CMakeFiles/mail.dir/main.c.o
+	$(MAKE) -f CMakeFiles/mail-hw-1.dir/build.make CMakeFiles/mail-hw-1.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -164,7 +164,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) -f CMakeFiles/mail.dir/build.make CMakeFiles/mail.dir/main.c.i
+	$(MAKE) -f CMakeFiles/mail-hw-1.dir/build.make CMakeFiles/mail-hw-1.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -173,7 +173,7 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) -f CMakeFiles/mail.dir/build.make CMakeFiles/mail.dir/main.c.s
+	$(MAKE) -f CMakeFiles/mail-hw-1.dir/build.make CMakeFiles/mail-hw-1.dir/main.c.s
 .PHONY : main.c.s
 
 # Help Target
@@ -184,9 +184,9 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... mail"
+	@echo "... clangformat"
+	@echo "... mail-hw-1"
 	@echo "... mail_lib"
-	@echo "... test_mail"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

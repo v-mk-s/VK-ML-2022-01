@@ -12,7 +12,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.16.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.16.3/CMakeSystem.cmake"
   "../mail_lib/CMakeLists.txt"
-  "../tests/CMakeLists.txt"
   "/usr/share/cmake-3.16/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
@@ -22,18 +21,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.16/Modules/CMakeLanguageInformation.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeSystemSpecificInformation.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeSystemSpecificInitialize.cmake"
-  "/usr/share/cmake-3.16/Modules/CheckCSourceCompiles.cmake"
-  "/usr/share/cmake-3.16/Modules/CheckIncludeFile.cmake"
-  "/usr/share/cmake-3.16/Modules/CheckLibraryExists.cmake"
   "/usr/share/cmake-3.16/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "/usr/share/cmake-3.16/Modules/Compiler/GNU-C.cmake"
   "/usr/share/cmake-3.16/Modules/Compiler/GNU-CXX.cmake"
   "/usr/share/cmake-3.16/Modules/Compiler/GNU.cmake"
-  "/usr/share/cmake-3.16/Modules/FindGTest.cmake"
-  "/usr/share/cmake-3.16/Modules/FindPackageHandleStandardArgs.cmake"
-  "/usr/share/cmake-3.16/Modules/FindPackageMessage.cmake"
-  "/usr/share/cmake-3.16/Modules/FindThreads.cmake"
-  "/usr/share/cmake-3.16/Modules/GoogleTest.cmake"
   "/usr/share/cmake-3.16/Modules/Internal/CMakeCheckCompilerFlag.cmake"
   "/usr/share/cmake-3.16/Modules/Platform/Linux-GNU-C.cmake"
   "/usr/share/cmake-3.16/Modules/Platform/Linux-GNU-CXX.cmake"
@@ -52,12 +43,11 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "mail_lib/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/mail.dir/DependInfo.cmake"
+  "CMakeFiles/clangformat.dir/DependInfo.cmake"
+  "CMakeFiles/mail-hw-1.dir/DependInfo.cmake"
   "mail_lib/CMakeFiles/mail_lib.dir/DependInfo.cmake"
-  "tests/CMakeFiles/test_mail.dir/DependInfo.cmake"
   )

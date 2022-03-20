@@ -12,7 +12,7 @@
 #define OK true
 #define ERROR false
 
-#define MAX_INPUT_CHAR_TRY 5
+#define MAX_CHARS_IN_BUF 100
 
 typedef struct Mail {
     char *username;
@@ -24,8 +24,8 @@ typedef struct Mail {
 bool create_mail_pointer_to_struct(FILE* file, Mail **new_mail_p);
 
 /* Returns NULL on failure */
-char *input_string();
-char input_char();
+char *input_string(FILE* file);
+char input_char(FILE* file);
 
 bool is_letter(char c);
 bool is_digit(char c);

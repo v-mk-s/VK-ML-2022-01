@@ -20,7 +20,7 @@ bool create_mail_pointer_to_struct(FILE* file, Mail **new_mail_p) {
 
     char *string = NULL;
     printf("Enter e-mail\n");
-    string = input_string();
+    string = input_string(file);
     if (!string) {
         return ERROR;
     }
@@ -33,7 +33,7 @@ bool create_mail_pointer_to_struct(FILE* file, Mail **new_mail_p) {
     return OK;
 }
 
-char *input_string()
+char *input_string(FILE* file)
 {
     struct buffer
     {
@@ -42,7 +42,7 @@ char *input_string()
         size_t capacity;
     } buf = {NULL, 0, 0};
     char c = '\0';
-    while (c = input_char(), c != EOF && c != '\n')
+    while (c = input_char(file), c != EOF && c != '\n')
     {
         if (buf.size + 1 >= buf.capacity)
         {
@@ -71,23 +71,26 @@ char *input_string()
     return buf.string;
 }
 
-char input_char()
-{
+char input_char(FILE* file)
+{  
+    char* check_fgets = NULL;
+    char buf[MAX_CHARS_IN_BUF] = {0};
+    check_fgets = fgets(buf, MAX_CHARS_IN_BUF, file);
     char c = '\0';
     int result = 0;
 
-    int i = 0;
-    do
-    {
-        result = scanf("%c", &c);
-        ++i;
-    } while ((result != 1) && (i != MAX_INPUT_CHAR_TRY));
+    if (check_fgets) {
+        result = sscanf(buf, "%c", &c);
+    }
+    if (result) {
+        c = '\0';
+    }
     return c;
 }
 
 bool is_letter(char c)
 {
-    return ((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z'));
+    return (((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z')));
 }
 
 bool is_digit(char c)

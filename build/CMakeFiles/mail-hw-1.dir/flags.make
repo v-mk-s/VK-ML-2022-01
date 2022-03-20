@@ -6,5 +6,5 @@ C_FLAGS = -Wall -Wpedantic -Wextra -Werror -O2   -std=gnu99
 
 C_DEFINES = 
 
-C_INCLUDES = 
+C_INCLUDES = -I"/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/VK-ML-2022-01/mail_lib" 
 

@@ -40,7 +40,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/VK-ML-2022-01/build/mail_lib/cmake_install.cmake")
-  include("/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/VK-ML-2022-01/build/tests/cmake_install.cmake")
 
 endif()
 

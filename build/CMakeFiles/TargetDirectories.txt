@@ -1,9 +1,7 @@
 /mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/VK-ML-2022-01/build/CMakeFiles/rebuild_cache.dir
 /mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/VK-ML-2022-01/build/CMakeFiles/edit_cache.dir
-/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/VK-ML-2022-01/build/CMakeFiles/mail.dir
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/VK-ML-2022-01/build/CMakeFiles/clangformat.dir
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/VK-ML-2022-01/build/CMakeFiles/mail-hw-1.dir
 /mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/VK-ML-2022-01/build/mail_lib/CMakeFiles/rebuild_cache.dir
 /mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/VK-ML-2022-01/build/mail_lib/CMakeFiles/edit_cache.dir
 /mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/VK-ML-2022-01/build/mail_lib/CMakeFiles/mail_lib.dir
-/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/VK-ML-2022-01/build/tests/CMakeFiles/edit_cache.dir
-/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/VK-ML-2022-01/build/tests/CMakeFiles/rebuild_cache.dir
-/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/VK-ML-2022-01/build/tests/CMakeFiles/test_mail.dir
