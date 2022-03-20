@@ -1,1 +1,0 @@
-/usr/bin/c++  -fprofile-arcs -ftest-coverage -O0   -coverage -lgcov -coverage -lgcov CMakeFiles/test_mail.dir/test_mail.cpp.o  -o test_mail  ../mail_lib/libmail_lib.a /usr/local/lib/libgtest.a -lgtest_main -lpthread 
