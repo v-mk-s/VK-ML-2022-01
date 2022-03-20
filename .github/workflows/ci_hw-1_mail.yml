@@ -60,7 +60,7 @@ jobs:
       - name: Upload coverage report (Codecov)
         uses: codecov/codecov-action@v2
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          token: ${{ secrets.CODECOV_TOKEN='d01eac6f-7de5-4632-99bc-2518ecd96b2c' }}
           fail_ci_if_error: true
           files: build/coverage.xml
           flags: unittests
