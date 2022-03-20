@@ -1,1 +1,0 @@
-/usr/bin/cc -Wall -Wpedantic -Wextra -Werror -O2  -rdynamic CMakeFiles/mail-hw-1.dir/main.c.o  -o mail-hw-1  mail_lib/libmail_lib.a 
