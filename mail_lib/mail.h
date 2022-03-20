@@ -33,7 +33,7 @@ bool is_spec_symbol(char c);
 bool is_username_sym(char c);
 
 bool parse_string_as_mail(char const *const string, Mail *const mail);
-bool print_mail(const Mail * const mail, bool success);
+bool print_mail(const Mail * const mail);
 bool delete_mail(Mail *mail);
 
 #endif // PROJECT_MAIL_H_

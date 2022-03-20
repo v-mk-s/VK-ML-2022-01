@@ -6,10 +6,9 @@
 int main(void) {
     FILE* file = stdin;
     Mail *new_mail = NULL;
-    bool success = false;
 
-    success = create_mail_pointer_to_struct(file, &new_mail);
-    print_mail(new_mail, success);
+    create_mail_pointer_to_struct(file, &new_mail);
+    print_mail(new_mail);
     delete_mail(new_mail);
 
     return 0;

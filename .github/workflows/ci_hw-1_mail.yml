@@ -27,7 +27,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Run a one-line script
+      - name: Run update && upgrade && install
         run: echo Start CI HW-1 MAIL
 
       - name: Install dependencies
@@ -35,37 +35,37 @@ jobs:
           sudo apt-get update
           sudo apt-get upgrade
           sudo apt-get install -y cmake build-essential clang-tidy-12 clang-format-12 valgrind gcovr
-      - name: CMake with option for tests
+      - name: CMake (option = for Tests)
         run: |
           # cd CI-hw-1
           mkdir build
           cd build
           cmake -DBUILD_TESTS=ON ..
-      - name: Check code style
+      - name: Check code style (clangformat)
         run: |
           cd CI-hw-1/build 
           make clangformat/fast
-      - name: Make
+      - name: Run make
         run: |
           cd CI-hw-1/build 
           make
-      - name: Start test with valgrind
+      - name: Start Valgrind test
         run: |
           cd CI-hw-1/build 
           make tests_with_valgrind/fast
-      - name: Generate coverage reports
+      - name: Make coverage report
         run: |
           cd CI-hw-1/build 
           gcovr --root .. --exclude ../tests --exclude _deps --exclude ../main.c --exclude-unreachable-branches --xml-pretty --output coverage.xml
       
-      - name: Upload coverage to Codecov
+      - name: Upload coverage report (Codecov)
         uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
           files: CI-hw-1/build/coverage.xml
           flags: unittests
-          name: codecov-unittests
+          name: codecov-libtests(unittests)
 
 
 

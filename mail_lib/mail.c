@@ -126,6 +126,7 @@ bool parse_string_as_mail(char const *const string, Mail *const mail)
         mail->username = username;
     }
     else {
+        delete_mail(mail);
         return ERROR;
     }
 
@@ -141,6 +142,7 @@ bool parse_string_as_mail(char const *const string, Mail *const mail)
         mail->mail_service_name = mail_service_name;
     }
     else {
+        delete_mail(mail);
         return ERROR;
     }
 
@@ -157,6 +159,7 @@ bool parse_string_as_mail(char const *const string, Mail *const mail)
         mail->top_level_domain = top_level_domain;
     }
     else {
+        delete_mail(mail);
         return ERROR;
     }
 
@@ -167,19 +170,20 @@ bool parse_string_as_mail(char const *const string, Mail *const mail)
     return OK;
 }
 
-bool print_mail(const Mail * const mail, bool success) {
-    if (success) {
+bool print_mail(const Mail * const mail) {
+    if (!mail) {
         printf("Email address was successfully parsed:\n");
         printf("    Username: %s\n", mail->username);
         printf("    Name of the mail service: %s\n", mail->mail_service_name);
         printf("    Top-level domain: %s\n", mail->top_level_domain);
         printf("Email: %s@%s.%s\n", mail->username, mail->mail_service_name, mail->top_level_domain);
-    } else {
-        puts("Wrong Email!");
-        puts("NULL pointer!");
+
+        return OK;
     }
 
-    return OK;
+    puts("Wrong Email!");
+    puts("NULL pointer!");
+    return ERROR;
 }
 
 bool delete_mail(Mail *mail) {
