@@ -13,4 +13,4 @@ VK ML Course
 
 Преподаватель: Алексей Карпычев
 
-#вставить тест покрытия скрин с сайта
+[![codecov](https://codecov.io/gh/v-mk-s/VK-ML-2022-01/branch/making-hw-1/graph/badge.svg?token=V7EVIDNX39)](https://codecov.io/gh/v-mk-s/VK-ML-2022-01)
