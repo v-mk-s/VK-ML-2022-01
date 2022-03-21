@@ -58,6 +58,7 @@ char *input_string(FILE *file) {
             if (string) {
                 free(string);
             }
+            string = tmp;
             if (!tmp) {
                 return ERROR;
             }
