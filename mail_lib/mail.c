@@ -136,8 +136,7 @@ bool parse_string_as_mail(char const * string, Mail * mail) {
     ++string_p;
     size_t inx_tld = 0;
     while ((*string_p != '\0') && (inx_tld < MAX_TOP_LEVEL_DOMAIN_SIZE) &&
-           (*string_p != '\n') && is_letter(*string_p))
-    {
+           (*string_p != '\n') && is_letter(*string_p)) {
         top_level_domain[inx_tld] = *string_p;
         ++string_p;
         ++inx_tld;
