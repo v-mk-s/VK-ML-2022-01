@@ -4,8 +4,8 @@ extern "C" {
     #include "mail.h"
 }
 
-#define OK_TEST 1
-#define BAD 0
+#define OK_TEST true
+#define BAD false
 
 TEST(CreateMail, TestCreateMail) {
     char input1[] = "t.e_s-t@mail.ru\n";

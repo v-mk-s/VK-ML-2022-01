@@ -55,10 +55,10 @@ char *input_string(FILE *file) {
             capacity *= 2;
             char *tmp = NULL;
             tmp = (char *)realloc(string, capacity * sizeof(char));
+            if (string) {
+                free(string);
+            }
             if (!tmp) {
-                if (string) {
-                    free(string);
-                }
                 return ERROR;
             }
         }
