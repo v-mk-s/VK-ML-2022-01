@@ -33,32 +33,25 @@ bool create_mail_pointer_to_struct(FILE* file, Mail **new_mail_p) {
     return OK;
 }
 
-char *input_string(FILE* file)
-{
-    struct buffer
-    {
+char *input_string(FILE* file) {
+    struct buffer {
         char *string;
         size_t size;
         size_t capacity;
     } buf = {NULL, 0, 0};
     char c = '\0';
-    while (c = input_char(file), c != EOF && c != '\n')
-    {
-        if (buf.size + 1 >= buf.capacity)
-        {
+    while (c = input_char(file), c != EOF && c != '\n') {
+        if (buf.size + 1 >= buf.capacity) {
             size_t new_capacity = !buf.capacity ? 1 : buf.capacity * 2;
             char *tmp = (char *)malloc((new_capacity + 1) * sizeof(char));
-            if (!tmp)
-            {
-                if (buf.string)
-                {
+            if (!tmp) {
+                if (buf.string) {
                     free(buf.string);
                 }
                 return NULL;
             }
-            if (buf.string)
-            {
-                tmp = strcpy(tmp, buf.string);
+            if (buf.string) {
+                tmp = snprintf(tmp, MAX_CHARS_IN_BUF, buf.string);
                 free(buf.string);
             }
             buf.string = tmp;
@@ -71,8 +64,7 @@ char *input_string(FILE* file)
     return buf.string;
 }
 
-char input_char(FILE* file)
-{  
+char input_char(FILE* file) {
     char* check_fgets = NULL;
     char buf[MAX_CHARS_IN_BUF] = {0};
     check_fgets = fgets(buf, MAX_CHARS_IN_BUF, file);
@@ -88,35 +80,31 @@ char input_char(FILE* file)
     return c;
 }
 
-bool is_letter(char c)
-{
+bool is_letter(char c) {
     return (((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z')));
 }
 
-bool is_digit(char c)
-{
+bool is_digit(char c) {
     return ((c >= '0') && (c <= '9'));
 }
 
-bool is_spec_symbol(char c)
-{
+bool is_spec_symbol(char c) {
     return ((c == '.') || (c == '_') || (c == '-'));
 }
 
-bool is_username_sym(char c)
-{
+bool is_username_sym(char c) {
     return (is_letter(c) || is_digit(c) || is_spec_symbol(c));
 }
 
-bool parse_string_as_mail(char const * string, Mail * mail)
-{
+bool parse_string_as_mail(char const * string, Mail * mail) {
     char *username = (char *)malloc((MAX_USERNAME_SIZE + 1) * sizeof(char));
     char *mail_service_name = (char *)malloc((MAX_MAIL_SERVICE_NAME_SIZE + 1) * sizeof(char));
     char *top_level_domain = (char *)malloc((MAX_TOP_LEVEL_DOMAIN_SIZE + 1) * sizeof(char));
 
     char const * string_p = string;
     size_t inx_name = 0;
-    while ((*string_p != '\0') && (inx_name < MAX_USERNAME_SIZE) && (*string_p != '@') && is_username_sym(*string_p)) {
+    while ((*string_p != '\0') && (inx_name < MAX_USERNAME_SIZE) &&
+           (*string_p != '@') && is_username_sym(*string_p)) {
         username[inx_name] = *string_p;
         ++string_p;
         ++inx_name;
@@ -132,7 +120,8 @@ bool parse_string_as_mail(char const * string, Mail * mail)
 
     ++string_p;
     size_t inx_mail = 0;
-    while ((*string_p != '\0') && (inx_mail < MAX_MAIL_SERVICE_NAME_SIZE) && (*string_p != '.') && is_letter(*string_p)) {
+    while ((*string_p != '\0') && (inx_mail < MAX_MAIL_SERVICE_NAME_SIZE) &&
+           (*string_p != '.') && is_letter(*string_p)) {
         mail_service_name[inx_mail] = *string_p;
         ++string_p;
         ++inx_mail;
@@ -148,7 +137,8 @@ bool parse_string_as_mail(char const * string, Mail * mail)
 
     ++string_p;
     size_t inx_tld = 0;
-    while ((*string_p != '\0') && (inx_tld < MAX_TOP_LEVEL_DOMAIN_SIZE) && (*string_p != '\n') && is_letter(*string_p))
+    while ((*string_p != '\0') && (inx_tld < MAX_TOP_LEVEL_DOMAIN_SIZE) &&
+           (*string_p != '\n') && is_letter(*string_p))
     {
         top_level_domain[inx_tld] = *string_p;
         ++string_p;

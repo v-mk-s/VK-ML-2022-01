@@ -1,5 +1,5 @@
-#ifndef  PROJECT_MAIL_H_
-#define  PROJECT_MAIL_H_
+#ifndef MAIL_LIB_MAIL_H_
+#define MAIL_LIB_MAIL_H_
 
 #include <string.h>
 #include <stdbool.h>
@@ -36,4 +36,4 @@ bool parse_string_as_mail(char const * string, Mail * mail);
 bool print_mail(const Mail * const mail);
 bool delete_mail(Mail *mail);
 
-#endif // PROJECT_MAIL_H_
+#endif  // MAIL_LIB_MAIL_H_
