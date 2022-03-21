@@ -33,6 +33,7 @@ bool is_spec_symbol(char c);
 bool is_username_sym(char c);
 
 bool parse_string_as_mail(char const * string, Mail * mail);
+void delete_parse_p(char *p1, char *p2, char *p3, char *p4);
 bool print_mail(const Mail * const mail);
 bool delete_mail(Mail **mail);
 
