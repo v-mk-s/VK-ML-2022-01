@@ -51,7 +51,7 @@ char *input_string(FILE* file) {
                 return NULL;
             }
             if (buf.string) {
-                tmp = snprintf(tmp, MAX_CHARS_IN_BUF, buf.string);
+                tmp = strncpy(tmp, buf.string, (size_t) MAX_CHARS_IN_BUF);
                 free(buf.string);
             }
             buf.string = tmp;
