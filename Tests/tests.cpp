@@ -8,26 +8,26 @@ extern "C" {
 #define BAD false
 
 TEST(CreateMail, TestCreateMail) {
-    char input1[] = "t.e_s-t@mail.ru\n";
+    char input1[] = "t.e_s-t@mail.ru\n\0";
     FILE* stream1 = fmemopen(input1, strlen(input1), "r");
     Mail *new_mail = NULL;
     EXPECT_EQ(OK_TEST, create_mail_pointer_to_struct(stream1, &new_mail));
     ASSERT_NO_THROW(delete_mail(&new_mail));
     fclose(stream1);
 
-    char input2[] = "test@mail.r1u\n";
+    char input2[] = "test@mail.r1u\n\0";
     FILE* stream2 = fmemopen(input2, strlen(input2), "r");
     EXPECT_EQ(BAD, create_mail_pointer_to_struct(stream2, &new_mail));
     ASSERT_NO_THROW(delete_mail(&new_mail));
     fclose(stream2);
 
-    char input3[] = "test@ma2il.ru\n";
+    char input3[] = "test@ma2il.ru\n\0";
     FILE* stream3 = fmemopen(input3, strlen(input3), "r");
     EXPECT_EQ(BAD, create_mail_pointer_to_struct(stream3, &new_mail));
     ASSERT_NO_THROW(delete_mail(&new_mail));
     fclose(stream3);
 
-    char input4[] = "test@ma.il.ru\n";
+    char input4[] = "test@ma.il.ru\n\0";
     FILE* stream4 = fmemopen(input4, strlen(input4), "r");
     EXPECT_EQ(BAD, create_mail_pointer_to_struct(stream4, &new_mail));
     ASSERT_NO_THROW(delete_mail(&new_mail));
@@ -35,7 +35,7 @@ TEST(CreateMail, TestCreateMail) {
 }
 
 TEST(DeleteMail, TestDeleteMail) {
-    char input1[] = "t.e_s-t@mail.ru\n";
+    char input1[] = "t.e_s-t@mail.ru\n\0";
     FILE* stream1 = fmemopen(input1, strlen(input1), "r");
     Mail *new_mail = NULL;
     ASSERT_NO_THROW(create_mail_pointer_to_struct(stream1, &new_mail));
@@ -44,7 +44,7 @@ TEST(DeleteMail, TestDeleteMail) {
 }
 
 TEST(PrintMail, PrintMail) {
-    char input1[] = "t.e_s-t@mail.ru\n";
+    char input1[] = "t.e_s-t@mail.ru\n\0";
     FILE* stream1 = fmemopen(input1, strlen(input1), "r");
     Mail *new_mail = NULL;
     ASSERT_NO_THROW(create_mail_pointer_to_struct(stream1, &new_mail));
@@ -52,7 +52,7 @@ TEST(PrintMail, PrintMail) {
     ASSERT_NO_THROW(delete_mail(&new_mail));
     fclose(stream1);
 
-    char input2[] = "test@ma2il.ru\n";
+    char input2[] = "test@ma2il.ru\n\0";
     FILE* stream2 = fmemopen(input2, strlen(input2), "r");
     ASSERT_NO_THROW(create_mail_pointer_to_struct(stream2, &new_mail));
     EXPECT_EQ(BAD, print_mail(new_mail));

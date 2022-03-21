@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14.0)
 project(Tests)
 
 set(CMAKE_CXX_STANDARD 17)
-string(APPEND CMAKE_CXX_FLAGS " -fprofile-arcs -ftest-coverage -O0")
+string(APPEND CMAKE_CXX_FLAGS " -fprofile-arcs -ftest-coverage -O0 -ggdb3")
 if (BUILD_SANITIZERS)
     string(APPEND CMAKE_CXX_FLAGS " -fsanitize=address -fsanitize=undefined -fsanitize=leak")
 endif()
