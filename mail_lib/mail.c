@@ -124,10 +124,6 @@ bool parse_string_as_mail(char const * string, Mail * mail) {
     char *mail_service_name = (char *)malloc((MAX_MAIL_SERVICE_NAME_SIZE + 1) * sizeof(char));
     char *top_level_domain = (char *)malloc((MAX_TOP_LEVEL_DOMAIN_SIZE + 1) * sizeof(char));
 
-    mail->username = username;
-    mail->mail_service_name = mail_service_name;
-    mail->top_level_domain = top_level_domain;
-
     char const *string_p = string;
     size_t inx_name = 0;
     while ((*string_p != '\0') && (inx_name < MAX_USERNAME_SIZE) &&
@@ -139,7 +135,10 @@ bool parse_string_as_mail(char const * string, Mail * mail) {
     username[inx_name] = '\0';
     // printf("%s\n", username);
     if (*string_p != '@') {
+        free(username);
+        free(mail_service_name);
         free(top_level_domain);
+        free(string);
         return ERROR;
     }
 
@@ -154,6 +153,9 @@ bool parse_string_as_mail(char const * string, Mail * mail) {
     mail_service_name[inx_mail] = '\0';
     // printf("%s\n", mail_service_name);
     if (*string_p != '.') {
+        free(username);
+        free(mail_service_name);
+        free(top_level_domain);
         free(string);
         return ERROR;
     }
@@ -169,9 +171,16 @@ bool parse_string_as_mail(char const * string, Mail * mail) {
     top_level_domain[inx_tld] = '\0';
     // printf("%s\n", top_level_domain);
     if ((*string_p != '\0') && (*string_p != '\n')) {
+        free(username);
+        free(mail_service_name);
+        free(top_level_domain);
         free(string);
         return ERROR;
     }
+
+    mail->username = username;
+    mail->mail_service_name = mail_service_name;
+    mail->top_level_domain = top_level_domain;
 
     return OK;
 }
