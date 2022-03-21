@@ -41,7 +41,7 @@ char *input_string(FILE* file) {
     int str_len = 0;
     int capacity = MAX_CHARS_IN_BUF;
     char *string = NULL;
-    string = (char *)malloc(sizeof(char));
+    string = (char *)malloc(capacity * sizeof(char));
     if (!string) {
         return nullptr;
     }
