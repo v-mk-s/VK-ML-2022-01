@@ -31,6 +31,9 @@ bool create_mail_pointer_to_struct(FILE* file, Mail **new_mail_p) {
     }
 
     bool success = parse_string_as_mail(string, new_mail);
+    if (string) {
+        free(string);
+    }
     if (!success) {
         return ERROR;
     }
@@ -151,7 +154,7 @@ bool parse_string_as_mail(char const * string, Mail * mail) {
     username[inx_name] = '\0';
     // printf("%s\n", username);
     if (*string_p != '@') {
-        delete_parse_p(username, mail_service_name, top_level_domain, string);
+        delete_parse_p(username, mail_service_name, top_level_domain);
         return ERROR;
     }
 
@@ -166,7 +169,7 @@ bool parse_string_as_mail(char const * string, Mail * mail) {
     mail_service_name[inx_mail] = '\0';
     // printf("%s\n", mail_service_name);
     if (*string_p != '.') {
-        delete_parse_p(username, mail_service_name, top_level_domain, string);
+        delete_parse_p(username, mail_service_name, top_level_domain);
         return ERROR;
     }
 
@@ -181,7 +184,7 @@ bool parse_string_as_mail(char const * string, Mail * mail) {
     top_level_domain[inx_tld] = '\0';
     // printf("%s\n", top_level_domain);
     if ((*string_p != '\0') && (*string_p != '\n')) {
-        delete_parse_p(username, mail_service_name, top_level_domain, string);
+        delete_parse_p(username, mail_service_name, top_level_domain);
         return ERROR;
     }
 
@@ -192,7 +195,7 @@ bool parse_string_as_mail(char const * string, Mail * mail) {
     return OK;
 }
 
-void delete_parse_p(char *p1, char *p2, char *p3, char *p4) {
+void delete_parse_p(char *p1, char *p2, char *p3) {
     if (p1) {
         free(p1);
     }
@@ -201,9 +204,6 @@ void delete_parse_p(char *p1, char *p2, char *p3, char *p4) {
     }
     if (p3) {
         free(p3);
-    }
-    if (p4) {
-        free(p4);
     }
 }
 
