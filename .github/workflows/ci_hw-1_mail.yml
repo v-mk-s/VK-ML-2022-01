@@ -14,9 +14,9 @@ jobs:
       - name: prepare environment
         run: sudo apt update && sudo apt install build-essential libgtest-dev cmake gcc valgrind
       - name: build
-        run: cmake . -Bbuild && cmake --build build --target tests
+        run: cmake . -Bbuild && cmake --build build --target Tests
       - name: valgrind_memcheck_run
-        run: valgrind --tool=memcheck --leak-check=yes --error-exitcode=1 ./build/tests/tests
+        run: valgrind --tool=memcheck --leak-check=yes --error-exitcode=1 ./build/Tests/Tests
   Sanitaizer:
     runs-on: ubuntu-latest
     steps:
@@ -24,9 +24,9 @@ jobs:
       - name: prepare environment
         run: sudo apt update && sudo apt install build-essential libgtest-dev cmake gcc valgrind
       - name: build
-        run: cmake . -Bbuild -DBUILD_SANITIZERS=1 && cmake --build build --target tests
+        run: cmake . -Bbuild -DBUILD_SANITIZERS=1 && cmake --build build --target Tests
       - name: sanitizer_memcheck_run
-        run: ./build/tests/tests
+        run: ./build/Tests/Tests
   SanitaizerThread:
     runs-on: ubuntu-latest
     steps:
@@ -34,9 +34,9 @@ jobs:
       - name: prepare environment
         run: sudo apt update && sudo apt install build-essential libgtest-dev cmake gcc valgrind
       - name: build
-        run: cmake . -Bbuild -DBUILD_SANITIZERS_THREAD=1 && cmake --build build --target tests
+        run: cmake . -Bbuild -DBUILD_SANITIZERS_THREAD=1 && cmake --build build --target Tests
       - name: thread_sanitizer_run
-        run: ./build/tests/tests
+        run: ./build/Tests/Tests
   Linters:
     runs-on: ubuntu-latest
     steps:
@@ -52,11 +52,11 @@ jobs:
       - name: prepare environment
         run: sudo apt update && sudo apt install build-essential cmake gcc lcov libgtest-dev
       - name: build
-        run: cmake . -Bbuild && cmake --build build --target tests
+        run: cmake . -Bbuild && cmake --build build --target Tests
       - name: test run
-        run: ./build/tests/tests
+        run: ./build/Tests/Tests
       - name: codecov
-        run: lcov -t "./build/tests/tests" -o coverage.info -c -d "./build/mail_lib/CMakeFiles/mrea_lib.dir/" && genhtml -o report coverage.info
+        run: lcov -t "./build/Tests/Tests" -o coverage.info -c -d "./build/mail_lib/CMakeFiles/mail_lib.dir/" && genhtml -o report coverage.info
       - name: upload_artifact
         uses: actions/upload-artifact@v3
         with:

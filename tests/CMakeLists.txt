@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14.0)
-project(tests)
+project(Tests)
 
 set(CMAKE_CXX_STANDARD 17)
 string(APPEND CMAKE_CXX_FLAGS " -fprofile-arcs -ftest-coverage -O0")
@@ -19,9 +19,9 @@ file(GLOB SOURCES *.cpp)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTest gtest_main)
 
-# add_executable(${PROJECT_NAME} ${SOURCES})
-# target_include_directories(${PROJECT_NAME} PUBLIC ${MAIL_LIB_INCLUDE_DIRS} ${GTest_INCLUDE_DIRECTORIES})
-# target_link_libraries(${PROJECT_NAME} ${MAIL_LIB_LIBRARIES} ${GTest_LIBRARIES})
+add_executable(${PROJECT_NAME} ${SOURCES})
+target_include_directories(${PROJECT_NAME} PUBLIC ${MAIL_LIB_INCLUDE_DIRS} ${GTest_INCLUDE_DIRECTORIES})
+target_link_libraries(${PROJECT_NAME} ${MAIL_LIB_LIBRARIES} ${GTest_LIBRARIES})
 
 
 ################ вариант 2, не работает( #######################

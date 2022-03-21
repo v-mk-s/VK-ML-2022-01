@@ -25,7 +25,7 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov")
 target_include_directories(${PROJECT_NAME} PUBLIC ${MAIL_LIB_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${MAIL_LIB_LIBRARIES})
 
-add_subdirectory(tests)
+add_subdirectory(Tests)
 
 
 ################ вариант 2, не работает( #######################
