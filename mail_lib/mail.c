@@ -193,16 +193,16 @@ bool parse_string_as_mail(char const * string, Mail * mail) {
 }
 
 void delete_parse_p(char *p1, char *p2, char *p3, char *p4) {
-    if (p1) {
+    if (!p1) {
         free(p1);
     }
-    if (p2) {
+    if (!p2) {
         free(p2);
     }
-    if (p3) {
+    if (!p3) {
         free(p3);
     }
-    if (p4) {
+    if (!p4) {
         free(p4);
     }
 }
