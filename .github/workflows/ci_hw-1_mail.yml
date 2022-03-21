@@ -1,0 +1,64 @@
+# basic workflow (github Actions)
+
+# This is a basic workflow to help you get started with Actions
+
+name: CI HW-1 MAIL (Continuous Integration)
+
+on: push
+
+jobs:
+  Valgrind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: prepare environment
+        run: sudo apt update && sudo apt install build-essential libgtest-dev cmake gcc valgrind
+      - name: build
+        run: cmake . -Bbuild && cmake --build build --target Tests
+      - name: valgrind_memcheck_run
+        run: valgrind --tool=memcheck --leak-check=yes --error-exitcode=1 ./build/Tests/Tests
+  Sanitaizer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: prepare environment
+        run: sudo apt update && sudo apt install build-essential libgtest-dev cmake gcc valgrind
+      - name: build
+        run: cmake . -Bbuild -DBUILD_SANITIZERS=1 && cmake --build build --target Tests
+      - name: sanitizer_memcheck_run
+        run: ./build/Tests/Tests
+  SanitaizerThread:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: prepare environment
+        run: sudo apt update && sudo apt install build-essential libgtest-dev cmake gcc valgrind
+      - name: build
+        run: cmake . -Bbuild -DBUILD_SANITIZERS_THREAD=1 && cmake --build build --target Tests
+      - name: thread_sanitizer_run
+        run: ./build/Tests/Tests
+  Linters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: prepare environment
+        run: sudo apt update && sudo apt install python3 python3-pip && pip3 install --user cpplint
+      - name: linters_(cpplint)_run
+        run: ~/.local/bin/cpplint --recursive .
+  CoverageReport:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: prepare environment
+        run: sudo apt update && sudo apt install build-essential cmake gcc lcov libgtest-dev
+      - name: build
+        run: cmake . -Bbuild && cmake --build build --target Tests
+      - name: test run
+        run: ./build/Tests/Tests
+      - name: codecov
+        run: lcov -t "./build/Tests/Tests" -o coverage.info -c -d "./build/mail_lib/CMakeFiles/mail_lib.dir/" && genhtml -o report coverage.info
+      - name: upload_artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: codecov-report
+          path: ./report
