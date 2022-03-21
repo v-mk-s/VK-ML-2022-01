@@ -34,7 +34,6 @@ bool create_mail_pointer_to_struct(FILE* file, Mail **new_mail_p) {
     if (!success) {
         return ERROR;
     }
-
     return OK;
 }
 
