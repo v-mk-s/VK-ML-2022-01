@@ -25,7 +25,7 @@ bool create_mail_pointer_to_struct(FILE* file, Mail **new_mail_p);
 
 /* Returns NULL on failure */
 char *input_string(FILE* file);
-char input_char(FILE* file);
+// char input_char(FILE* file);
 
 bool is_letter(char c);
 bool is_digit(char c);
@@ -34,6 +34,6 @@ bool is_username_sym(char c);
 
 bool parse_string_as_mail(char const * string, Mail * mail);
 bool print_mail(const Mail * const mail);
-bool delete_mail(Mail *mail);
+bool delete_mail(Mail **mail);
 
 #endif  // MAIL_LIB_MAIL_H_

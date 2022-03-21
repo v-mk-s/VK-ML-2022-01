@@ -9,7 +9,7 @@ int main(void) {
 
     create_mail_pointer_to_struct(file, &new_mail);
     print_mail(new_mail);
-    delete_mail(new_mail);
+    delete_mail(&new_mail);
 
     return 0;
 }
