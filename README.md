@@ -17,7 +17,7 @@ VK ML Course
 
 Покрытие функций: 100%
 
-Покрытие по линий: 86%
+Покрытие линий: 86%
 
 ![image](https://user-images.githubusercontent.com/32800793/159366427-382100da-e53b-4d79-b699-bd1bae600f6a.png)
 
