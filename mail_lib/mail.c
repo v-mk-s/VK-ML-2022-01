@@ -241,6 +241,8 @@ bool delete_mail(Mail **mail) {
         free((*mail)->top_level_domain);
     }
 
-    free(*mail);
+    if (*mail) {
+        free(*mail);
+    }
     return OK;
 }
