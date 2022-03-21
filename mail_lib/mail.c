@@ -9,16 +9,13 @@ bool create_mail_pointer_to_struct(FILE* file, Mail **new_mail_p) {
     if (!new_mail_p) {
         return ERROR;
     }
-    Mail *new_mail_p = NULL;
-    new_mail_p = (Mail *)malloc(sizeof(Mail));
-    if (!new_mail_p) {
-        return ERROR;
-    }
 
+    *new_mail_p = (Mail *)malloc(sizeof(Mail));
     Mail *new_mail = *new_mail_p;
     if (!new_mail) {
         return ERROR;
     }
+
     new_mail->username = NULL;
     new_mail->mail_service_name = NULL;
     new_mail->top_level_domain = NULL;
