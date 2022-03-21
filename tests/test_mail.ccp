@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
 extern "C" {
-    #include "mail.h"
+    #include "mail_lib/mail.h"
 }
 
 #define OK_TEST 1
