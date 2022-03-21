@@ -13,7 +13,7 @@
 #define ERROR false
 #define nullptr NULL
 
-#define MAX_CHARS_IN_BUF 100
+#define MAX_CHARS_IN_BUF 30
 
 typedef struct Mail {
     char *username;

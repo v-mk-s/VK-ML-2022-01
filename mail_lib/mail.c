@@ -39,7 +39,7 @@ bool create_mail_pointer_to_struct(FILE* file, Mail **new_mail_p) {
 
 char *input_string(FILE* file) {
     int str_len = 0;
-    int capacity = 1;
+    int capacity = MAX_CHARS_IN_BUF;
     char *string = NULL;
     string = (char *)malloc(sizeof(char));
     if (!string) {
@@ -242,6 +242,5 @@ bool delete_mail(Mail **mail) {
     }
 
     free(*mail);
-    
     return OK;
 }
