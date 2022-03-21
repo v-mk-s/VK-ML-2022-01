@@ -43,7 +43,7 @@ jobs:
       - name: Check code style (clangformat)
         run: |
           cd build 
-          # make clangformat/fast
+          make clangformat/fast
       - name: Run make
         run: |
           cd build 
@@ -51,7 +51,7 @@ jobs:
       - name: Start Valgrind test
         run: |
           cd build 
-          # make tests_with_valgrind/fast
+          make tests_with_valgrind/fast
       - name: Make coverage report
         run: |
           cd build 
