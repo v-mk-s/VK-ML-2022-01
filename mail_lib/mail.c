@@ -37,13 +37,13 @@ bool create_mail_pointer_to_struct(FILE* file, Mail **new_mail_p) {
     return OK;
 }
 
-char *input_string(FILE *file) {
+char *input_string(FILE* file) {
     int str_len = 0;
     int capacity = 1;
     char *string = NULL;
     string = (char *)malloc(sizeof(char));
     if (!string) {
-        return ERROR;
+        return nullptr;
     }
     char c = '\0';
     while (((c = fgetc(file)) != EOF) && (c != '\n')) {
@@ -60,7 +60,7 @@ char *input_string(FILE *file) {
             }
             string = tmp;
             if (!tmp) {
-                return ERROR;
+                return nullptr;
             }
         }
     }
@@ -211,11 +211,11 @@ bool print_mail(const Mail * const mail) {
     }
 
     if ((mail->username) && (mail->mail_service_name) && (mail->top_level_domain)) {
-        // printf("Email address was successfully parsed:\n");
-        // printf("    Username: %s\n", mail->username);
-        // printf("    Name of the mail service: %s\n", mail->mail_service_name);
-        // printf("    Top-level domain: %s\n", mail->top_level_domain);
-        // printf("Email: %s@%s.%s\n", mail->username, mail->mail_service_name, mail->top_level_domain);
+        printf("Email address was successfully parsed:\n");
+        printf("    Username: %s\n", mail->username);
+        printf("    Name of the mail service: %s\n", mail->mail_service_name);
+        printf("    Top-level domain: %s\n", mail->top_level_domain);
+        printf("Email: %s@%s.%s\n", mail->username, mail->mail_service_name, mail->top_level_domain);
 
         return OK;
     }

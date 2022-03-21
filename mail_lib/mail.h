@@ -11,6 +11,7 @@
 
 #define OK true
 #define ERROR false
+#define nullptr NULL
 
 #define MAX_CHARS_IN_BUF 100
 
