@@ -211,11 +211,11 @@ bool print_mail(const Mail * const mail) {
     }
 
     if ((mail->username) && (mail->mail_service_name) && (mail->top_level_domain)) {
-        printf("Email address was successfully parsed:\n");
-        printf("    Username: %s\n", mail->username);
-        printf("    Name of the mail service: %s\n", mail->mail_service_name);
-        printf("    Top-level domain: %s\n", mail->top_level_domain);
-        printf("Email: %s@%s.%s\n", mail->username, mail->mail_service_name, mail->top_level_domain);
+        // printf("Email address was successfully parsed:\n");
+        // printf("    Username: %s\n", mail->username);
+        // printf("    Name of the mail service: %s\n", mail->mail_service_name);
+        // printf("    Top-level domain: %s\n", mail->top_level_domain);
+        // printf("Email: %s@%s.%s\n", mail->username, mail->mail_service_name, mail->top_level_domain);
 
         return OK;
     }
@@ -241,8 +241,7 @@ bool delete_mail(Mail **mail) {
         free((*mail)->top_level_domain);
     }
 
-    if (*mail) {
-        free(*mail);
-    }
+    free(*mail);
+    
     return OK;
 }
