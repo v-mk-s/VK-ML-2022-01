@@ -112,8 +112,7 @@ bool parse_string_as_mail(char const * string, Mail * mail) {
     username[inx_name] = '\0';
     if (*string_p == '@') {
         mail->username = username;
-    }
-    else {
+    } else {
         delete_mail(mail);
         return ERROR;
     }
@@ -129,8 +128,7 @@ bool parse_string_as_mail(char const * string, Mail * mail) {
     mail_service_name[inx_mail] = '\0';
     if (*string_p == '.') {
         mail->mail_service_name = mail_service_name;
-    }
-    else {
+    } else {
         delete_mail(mail);
         return ERROR;
     }
@@ -147,8 +145,7 @@ bool parse_string_as_mail(char const * string, Mail * mail) {
     top_level_domain[inx_tld] = '\0';
     if ((*string_p == '\0') || (*string_p == '\n')) {
         mail->top_level_domain = top_level_domain;
-    }
-    else {
+    } else {
         delete_mail(mail);
         return ERROR;
     }
