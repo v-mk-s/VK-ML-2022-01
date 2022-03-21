@@ -13,6 +13,16 @@ VK ML Course
 
 Преподаватель: Алексей Карпычев
 
+Итого:
+
+Покрытие функций: 100%
+
+Покрытие по линий: 86%
+
+![image](https://user-images.githubusercontent.com/32800793/159366427-382100da-e53b-4d79-b699-bd1bae600f6a.png)
+
+
+
 [![codecov](https://codecov.io/gh/v-mk-s/VK-ML-2022-01/branch/making-hw-1/graph/badge.svg?token=V7EVIDNX39)](https://codecov.io/gh/v-mk-s/VK-ML-2022-01)
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fv-mk-s%2FVK-ML-2022-01.svg?type=shield)]
