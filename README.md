@@ -2,6 +2,8 @@
 
 C/C++ advanced course
 
+author: v-mk-s | copyright 2022
+
 HW-2
 
 # Покрытие
