@@ -5,7 +5,7 @@ C/C++ advanced course
 HW-2
 
 # Покрытие
-// ![codecov](<https://codecov.io/gh/v-mk-s/VK-ML-2022-01/branch/making-hw-2/graph/badge.svg)
+![codecov](<https://codecov.io/gh/v-mk-s/VK-ML-2022-01/branch/making-hw-2/graph/badge.svg)
 
 Покрытие функций: **%
 
@@ -34,4 +34,4 @@ ML-12
 
 # Итог
 
-// ![photo](https://photo1.jpg)
+![photo](https://photo1.jpg)
