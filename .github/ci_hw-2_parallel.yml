@@ -14,8 +14,8 @@ jobs:
     steps:
       - name: Fetch
       - uses: actions/checkout@v2
-        with:
-          ref: "hw-1"
+        # with:
+        #   ref: "hw-1"
       - uses: actions/setup-python@v1
       - name: Update cpplint
         run: pip install cpplint
@@ -33,8 +33,8 @@ jobs:
     steps:
       - name: Fetch
         uses: actions/checkout@v2
-        with:
-          ref: "hw-2"
+        # with:
+        #   ref: "hw-2"
       - name: Update GTest
         run: |
           mkdir gtest
@@ -52,8 +52,8 @@ jobs:
     steps:
       - name: Fetch
         uses: actions/checkout@v2
-        with:
-          ref: "hw-2"
+        # with:
+        #   ref: "hw-2"
       - name: Update All
         run: sudo apt update -y
       - name: Install valgrind
