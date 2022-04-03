@@ -28,7 +28,7 @@ jobs:
         run: make check
   build:
     runs-on: ubuntu-latest
-    needs: [check]
+    # needs: [check]
     steps:
       - name: Fetch
         uses: actions/checkout@v2
@@ -47,7 +47,7 @@ jobs:
         run: make build
   test:
     runs-on: ubuntu-latest
-    needs: [build]
+    # needs: [build]
     steps:
       - name: Fetch
         uses: actions/checkout@v2
