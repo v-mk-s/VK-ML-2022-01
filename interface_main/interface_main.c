@@ -34,21 +34,21 @@ int call_sequence_gen(FILE *p_file)
     if (fscanf(p_file, "%d", &array_size) == EOF)
     {
         printf("Error! Wrong array size\n");
-        return FAIL;
+        return ERROR_DEFAULT;
     }
 
     printf("Enter maximum length:\n");
     if (fscanf(p_file, "%d", &length_max) == EOF)
     {
         printf("Error! Wrong max length\n");
-        return FAIL;
+        return ERROR_DEFAULT;
     }
 
     printf("Enter quote length:\n");
     if (fscanf(p_file, "%d", &length_quote) == EOF)
     {
         printf("Error! Wrong quote length\n");
-        return FAIL;
+        return ERROR_DEFAULT;
     }
 
     sequence_gen(array_size, length_max, length_quote);

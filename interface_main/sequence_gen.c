@@ -5,9 +5,10 @@
 #include <time.h>
 
 #include "interface_main.h"
+#include "processing_sequential.h"
 
 // Check qoute: find max length of re("[A-Z]*")
-int check_qoute(int *array, int const n, int const length_max)
+int check_quote(int *array, int const n, int const length_max)
 {
     for (int i = 0; i < length_max; ++i)
     {
@@ -19,7 +20,7 @@ int check_qoute(int *array, int const n, int const length_max)
             }
         }
     }
-    return FAIL; // enough series
+    return ERROR_DEFAULT; // enough series
 }
 
 // generate quote of specific length
@@ -100,12 +101,12 @@ int sequence_gen(int const array_size, int const length_max, int const n)
     sequence *seq = sequence_init(array_size, length_max);
     if (!seq)
     {
-        return FAIL;
+        return ERROR_DEFAULT;
     }
 
     while (seq->size < array_size)
     {
-        if (check_qoute(seq->qoute, n, length_max))
+        if (check_quote(seq->qoute, n, length_max))
         {
             int random_length = random() % length_max + 1;
             ++seq->qoute[random_length - 1];
@@ -134,15 +135,18 @@ int sequence_gen(int const array_size, int const length_max, int const n)
     return n;
 }
 
-// Generate random specific char
-char get_random_char() { return rand_array[random() % 3]; }
+// generate random specific char
+char get_random_char() {
+    char const rand_array[] = {'A', '1', '\"'};
+    return rand_array[random() % 3];
+}
 
-// Free allocated memory
+// free allocated memory
 int delete_sequence(sequence *obj)
 {
     if (!obj)
     {
-        return FAIL;
+        return ERROR_DEFAULT;
     }
 
     if (obj->array)

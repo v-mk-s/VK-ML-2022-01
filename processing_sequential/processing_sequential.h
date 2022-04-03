@@ -3,31 +3,30 @@
 #ifndef PROCESSING_SEQUENTIAL
 #define PROCESSING_SEQUENTIAL
 
-// Error codes
-#define NOT_ALLOCATED 1
-#define REALLOCATION_ERROR 2
-#define POINTER_ERROR 3
+#include <stdbool.h>
 
-#define BLOCK_SIZE 8
+#define OK 0
+#define ERROR_DEFAULT 10
+
+#define ERROR_NOT_ALLOCATED 1
+#define ERROR_REALLOCATION 2
+#define ERROR_WRONG_POINTER 3
+
+#define ADD_BLOCK_SIZE 8
 
 typedef struct
 {
     char *arr;
-    char *representer;
-    int *occurancies;
-    int *length;
-    int current_length;
+    int max_len;
     int arr_size;
     int max_size;
-} RLE;
+} Extractor;
 
-int sequential_processing(char *);
-RLE *init_RLE(char *);
-int delete_RLE(RLE *);
-int fill_RLE(RLE *);
-int length_checked(int[], int, int);
-int increase_arr_size(RLE *);
-int get_max_occurance_length(RLE *);
-void print_info(RLE *);
+int sequential_processing(char *seq);
+Extractor *init_Extractor(char *seq);
+int delete_Extractor(Extractor *obj);
+int write_in_Extractor(Extractor *obj);
+int get_max_quote_length(Extractor *obj);
+int print_info_Extractor(Extractor *obj);
 
 #endif  // PROCESSING_SEQUENTIAL

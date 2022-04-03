@@ -8,41 +8,37 @@ extern "C"
 #include "processing_sequential.h"
 }
 
-TEST(Interface, test_consistent_alg) {
-    char str1[] = "EECCAABBDEEDDDCCDEE";
-    char *arr1 = (char *)malloc(20 * sizeof(char));
-    for (int i = 0; i < 20; ++i)
+TEST(InterfaceMain, TestProcessingSequential)
+{
+    char string1[] = "q\"aQC\"B\"Y\"\"Y1\"B\"D\"A12345abc#\0";
+    char *array1 = (char *)malloc(25 * sizeof(char));
+    for (int i = 0; i < 25; ++i)
     {
-        arr1[i] = str1[i];
+        array1[i] = string1[i];
     }
-    EXPECT_EQ(sequential_processing(arr1), 2);
+    EXPECT_EQ(sequential_processing(array1), 2);
 
-    char str2[] = "BBEEAADDDDBBDDDDDDDDAAAAABBBBBBEEEEEEAADDDDDEEEBBBBBCCEEECEEEEEEEEEEBBBBBBBCCCCCCBBBBBBDDCCCCCCDDBAAAAAEEEAAAAAAAAAADDDDDBBBBBBBBBBEEEAAAAAAAACCCCCCCCCDDDDDDDDDEEEEEEEEEAAAABBBBBBDDEEEEEEEEEBBBBBBBBB";
-    char *arr2 = (char *)malloc(200 * sizeof(char));
-    for (int i = 0; i < 200; ++i)
+    char str2[] = "Abcdeabcde\"Abcdea\"bcdeAbcdeabcde\"AbcdeabcdeAbcdeabcde\0";
+    char *arr2 = (char *)malloc(48 * sizeof(char));
+    for (int i = 0; i < 48; ++i)
     {
         arr2[i] = str2[i];
     }
-    EXPECT_EQ(sequential_processing(arr2), 2);
+    EXPECT_EQ(sequential_processing(arr2), 6);
 }
 
-TEST(Interface, test_sequence_gen) {
+TEST(InterfaceMain, TestSequenceGeneration) {
     EXPECT_EQ(sequence_gen(20, 3, 2), 2);
 }
 
-TEST(Interface, test_interface) {
-    EXPECT_EQ(delete_sequence(NULL), 1);
-    // FILE* fp = NULL;
-    // char str1[] = "20 3 2\n";
-    // fp = fmemopen(str1, 8, "r");
-    // EXPECT_EQ(call_sequence_gen(fp), 1);
+TEST(InterfaceMain, TestInterface)
+{
+    EXPECT_EQ(delete_sequence(NULL), ERROR_DEFAULT);
 
     EXPECT_EQ(sequence_gen(20, 3, 2), 2);
-    // EXPECT_EQ(call_sequential_processing(), 2);
-    // fclose(fp);
 }
 
-TEST(sequential_processing, consistent_alg_functions) {
-    EXPECT_EQ(delete_RLE(NULL), NOT_ALLOCATED);
-    EXPECT_EQ(increase_arr_size(NULL), POINTER_ERROR);
+TEST(SequentialProcessing, TestProcessingSequentialFunctions)
+{
+    EXPECT_EQ(delete_Extractor(NULL), ERROR_NOT_ALLOCATED);
 }
