@@ -1,0 +1,2 @@
+/usr/bin/ar qc libproject_processing_sequential.a  CMakeFiles/project_processing_sequential.dir/processing_sequential.c.o
+/usr/bin/ranlib libproject_processing_sequential.a

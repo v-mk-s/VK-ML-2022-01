@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../interface_main/interface_main.h
+stdio.h
+-
+
+../processing_sequential/processing_sequential.h
+stdbool.h
+-
+
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/1/VK-ML-2022-01/src/main.c
+stdio.h
+-
+stdlib.h
+-
+interface_main.h
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/1/VK-ML-2022-01/src/interface_main.h
+processing_sequential.h
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/1/VK-ML-2022-01/src/processing_sequential.h
+

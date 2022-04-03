@@ -1,0 +1,12 @@
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/1/VK-ML-2022-01/build/CMakeFiles/rebuild_cache.dir
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/1/VK-ML-2022-01/build/CMakeFiles/edit_cache.dir
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/1/VK-ML-2022-01/build/CMakeFiles/project.dir
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/1/VK-ML-2022-01/build/processing_sequential/CMakeFiles/edit_cache.dir
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/1/VK-ML-2022-01/build/processing_sequential/CMakeFiles/rebuild_cache.dir
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/1/VK-ML-2022-01/build/processing_sequential/CMakeFiles/project_processing_sequential.dir
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/1/VK-ML-2022-01/build/interface_main/CMakeFiles/rebuild_cache.dir
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/1/VK-ML-2022-01/build/interface_main/CMakeFiles/edit_cache.dir
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/1/VK-ML-2022-01/build/interface_main/CMakeFiles/project_interface_main.dir
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/1/VK-ML-2022-01/build/tests/CMakeFiles/rebuild_cache.dir
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/1/VK-ML-2022-01/build/tests/CMakeFiles/edit_cache.dir
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/3-C&C++_advanced/2-HW/1/VK-ML-2022-01/build/tests/CMakeFiles/tests.dir

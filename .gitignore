@@ -1,5 +1,5 @@
 # author: v-mk-s | copyright 2022
 
-build/
+#build/
 gcovr_report/
 sequence_one.txt
