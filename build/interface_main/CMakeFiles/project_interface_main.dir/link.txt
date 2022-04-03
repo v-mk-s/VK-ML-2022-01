@@ -1,0 +1,2 @@
+/usr/bin/ar qc libproject_interface_main.a  CMakeFiles/project_interface_main.dir/interface_main.c.o CMakeFiles/project_interface_main.dir/sequence_gen.c.o
+/usr/bin/ranlib libproject_interface_main.a

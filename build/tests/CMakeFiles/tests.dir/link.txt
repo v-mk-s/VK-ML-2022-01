@@ -1,0 +1,1 @@
+/usr/bin/c++  -fprofile-arcs -ftest-coverage -O0   -coverage -rdynamic CMakeFiles/tests.dir/test.cpp.o  -o tests  ../interface_main/libproject_interface_main.a /usr/local/lib/libgtest_main.a ../processing_sequential/libproject_processing_sequential.a /usr/local/lib/libgtest_main.a /usr/local/lib/libgtest.a -lpthread 

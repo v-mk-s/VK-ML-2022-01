@@ -1,0 +1,1 @@
+/usr/bin/cc    -coverage -rdynamic CMakeFiles/project.dir/src/main.c.o  -o project  processing_sequential/libproject_processing_sequential.a interface_main/libproject_interface_main.a processing_sequential/libproject_processing_sequential.a 
