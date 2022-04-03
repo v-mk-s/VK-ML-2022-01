@@ -1,7 +1,7 @@
 # author: v-mk-s | copyright 2022
 
 cmake_minimum_required(VERSION 3.0.0)
-project(project_main)
+project(project)
 
 add_executable(${PROJECT_NAME} src/main.c)
 
