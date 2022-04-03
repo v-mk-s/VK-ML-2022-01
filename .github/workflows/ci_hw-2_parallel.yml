@@ -32,7 +32,7 @@ jobs:
     needs: [InstallAndCheck]
     steps:
       - name: Fetch
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           ref: "hw-2"
       - name: Update GTest
@@ -51,7 +51,7 @@ jobs:
     needs: [Build]
     steps:
       - name: Fetch
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           ref: "hw-2"
       - name: Update All
@@ -75,7 +75,7 @@ jobs:
         run: |
           gcov -abcfu build/**/CMakeFiles/**/*.gcno
       - name: Upload gcov report
-        uses: codecov/codecov-action@v2
+      - uses: codecov/codecov-action@v2
         with:
           directory: |
             /home/runner/work/VK-ML-2022-01/VK-ML-2022-01/
