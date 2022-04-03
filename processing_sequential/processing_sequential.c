@@ -105,11 +105,13 @@ int write_in_Extractor(Extractor *obj)
         } else if (c == '\"') {
             first_quote = true;
         }
+        ++i;
+    }
 
         // print_info_Extractor(obj);
-        obj->arr_size = i;
-        obj->max_len = max_len;
-    }
+    obj->arr_size = i;
+    obj->max_len = max_len;
+
 
     return OK;
 }
