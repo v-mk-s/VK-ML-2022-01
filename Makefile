@@ -1,5 +1,3 @@
-# author: v-mk-s | copyright 2022
-
 build_all:
 	cmake -B build; cmake --build build
 
@@ -19,7 +17,7 @@ check:
 	./linters/run.sh
 
 test:
-	./build/tests/test
+	./build/tests/tests
 
 search:
 	find ./ -type f -iname '*.gcno'

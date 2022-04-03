@@ -10,17 +10,17 @@ extern "C"
 
 TEST(InterfaceMain, TestProcessingSequential)
 {
-    char string1[] = "q\"aQC\"B\"Y\"\"Y1\"B\"D\"A12345abc#\0";
-    char *array1 = (char *)malloc(25 * sizeof(char));
-    for (int i = 0; i < 25; ++i)
+    char string1[] = "q\"aQC\"B\"Y\"\"Y1\"B\"D\"A12345abc#\0                         ";
+    char *array1 = (char *)malloc(30 * sizeof(char));
+    for (int i = 0; i < 30; ++i)
     {
         array1[i] = string1[i];
     }
     EXPECT_EQ(sequential_processing(array1), 2);
 
-    char str2[] = "Abcdeabcde\"Abcdea\"bcdeAbcdeabcde\"AbcdeabcdeAbcdeabcde\0";
-    char *arr2 = (char *)malloc(48 * sizeof(char));
-    for (int i = 0; i < 48; ++i)
+    char str2[] = "Abcdeabcde\"Abcdea\"bcdeAbcdeabcde\"AbcdeabcdeAbcdeabcde\0                ";
+    char *arr2 = (char *)malloc(55 * sizeof(char));
+    for (int i = 0; i < 55; ++i)
     {
         arr2[i] = str2[i];
     }
